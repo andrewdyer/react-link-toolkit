@@ -22,8 +22,10 @@
     },
     "keywords": [
         "react",
-        "package",
-        "template",
+        "link",
+        "context",
+        "provider",
+        "hook",
         "typescript"
     ],
     "author": "Andrew Dyer (https://github.com/andrewdyer)",
