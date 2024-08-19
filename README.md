@@ -16,7 +16,7 @@ npm install react-link-toolkit
 
 ## Usage
 
-### First, Create a Custom Link Component
+### Create a Custom Link Component
 
 To begin, create a simple custom link component.
 
