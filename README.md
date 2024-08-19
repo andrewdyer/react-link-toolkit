@@ -2,6 +2,10 @@
 
 A package to effortlessly manage and swap link components in React applications.
 
+## License
+
+Licensed under MIT. Totally free for private or commercial projects.
+
 ## Getting Started
 
 To install this package use npm:
