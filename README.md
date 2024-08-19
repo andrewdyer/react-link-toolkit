@@ -10,6 +10,66 @@ To install this package use npm:
 npm install react-link-toolkit
 ```
 
+## Usage
+
+### First, Create a Custom Link Component
+
+To begin, create a simple custom link component.
+
+```tsx
+// DummyLink.tsx
+function DummyLink(props: { children: React.ReactNode; to: string }) {
+    return <a href={to}>{children}</a>;
+}
+
+export default DummyLink;
+```
+
+The `DummyLink` component serves as a basic example in this demo and simply wraps an anchor element. While `DummyLink` is adequate for demonstration purposes, a more robust link component, such as `Link` from react-router-dom, is typically used in production applications to handle navigation within a single-page application (SPA).
+
+### Wrap the React Application
+
+To ensure a consistent link component is used throughout the application, the root component should be wrapped with `LinkProvider`. This setup allows any component within the application to access the specified link component via React context.
+
+```tsx
+// index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { LinkProvider } from 'react-link-toolkit';
+import App from './App';
+import DummyLink from './DummyLink';
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+    <LinkProvider LinkComponent={DummyLink}>
+        <App />
+    </LinkProvider>,
+    document.getElementById('root')
+);
+```
+
+In this example, `LinkProvider` wraps the App component, with `DummyLink` set as the link component. This configuration ensures that all links rendered within the application use `DummyLink`, providing consistent styling and behavior across the application.
+
+### Using the `useLink` Hook
+
+The `useLink` hook retrieves the link component defined in `LinkProvider`. This ensures consistent usage of the specified link component throughout different parts of the application.
+
+```tsx
+// App.tsx
+import React from 'react';
+import { useLink } from 'react-link-toolkit';
+
+function App() {
+    const Link = useLink();
+
+    return <Link to="/home">Home</Link>;
+}
+
+export default App;
+```
+
+In this example, the `useLink` hook provides access to the `Link` component configured in `LinkProvider`. The retrieved `Link` component is then used to render a link to the /home route. This method guarantees that the link component remains consistent with what was defined in the provider, simplifying the process of switching out or customizing link components without needing to update individual components across the application.
+
 ## Local Development
 
 For local development, use Yalc to install this package in your project.
