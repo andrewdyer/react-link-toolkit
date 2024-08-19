@@ -1,6 +1,6 @@
 # React Link Toolkit
 
-A template for creating React packages.
+A package to effortlessly manage and swap link components in React applications.
 
 ## Getting Started
 
